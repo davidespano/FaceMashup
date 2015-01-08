@@ -1,0 +1,127 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it-IT">
+   <head> 
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <title>upper_bar</title>
+  
+    </head>
+	
+	<style>
+	* {
+		padding: 0;
+		margin: 0;
+	}
+	.fit {
+	max-width: 100%;
+    max-height: 100%;
+	}
+	
+	.upper_bar_div  {
+		height: 126;
+	}
+	
+	.center {
+    display: block;
+    margin: auto;
+	}
+	</style>
+	
+	<body bgcolor="#e9eaed" onload="set_body_width();">
+	
+	<div style="position:relative" id="header" class="upper_bar_div">
+		<img class="center fit" id="id_bg_img" style="position: relative;" src="img/upper_bar_bg.png"/>
+		<img class="center fit" id="id_logo_img" src="img/logo.png" style="position: absolute; top: 5px; left: 20px; height:'90px'" alt="logo"/>
+		
+		<img class="center fit" id="id_vert_bar_0" src="img/vert_bar_img.png" style="position: absolute; top: 5px; right: 15px; bottom: 5px;" alt="bar" height = '60%' width='auto'/>
+		
+		<img href="javascript:;" onClick="window.open('help/help_user_00.html', 'MANUALE UTENTE', 'width=1000, height=500, resizable, status, scrollbars=1, location=yes, menubar=yes')" class="center fit" id="id_help_icon" src="img/help_img.png" align="right" style="position: absolute; right: 30px; bottom: 47px;" alt="help" height = '40%' width='auto'/>
+		<a download="info.txt" id="downloadApplication"> <img  onclick="parent.frames['work_area_frame'].saveApplicationRequest(this)" class="center fit" id="id_save_icon" src="img/save_img.png" align="right" style="position: absolute; top: 5px; right: 90px; bottom: 20px;" alt="save" height = '40%' width='auto'/> </a>
+		<img class="center fit"  onclick="parent.frames['work_area_frame'].openApplicationRequest(this)" id="id_load_icon"  src="img/load_img.png" align="right" style="position: absolute; top: 5px; right: 150px; bottom: 20px;" alt="open" height = '40%' width='auto'/>
+		
+		
+		<img class="center fit" id="id_vert_bar_1" src="img/vert_bar_img.png" style="position: absolute; top: 5px; right: 200px; bottom: 5px;" alt="bar" height = '60%' width='auto'/>
+
+		<img class="center fit" onclick="parent.frames['work_area_frame'].nextStep()" id="id_redo_icon" src="img/redo_img.png" align="right" style="opacity:0.5; position: absolute; top: 5px; right: 360px; bottom: 20px;" alt="help" height = '40%' width='auto'/>
+		<img class="center fit" onclick="parent.frames['work_area_frame'].prevStep()" id="id_undo_icon" src="img/undo_img.png" align="right" style="opacity:0.5; position: absolute; top: 5px; right: 420px; bottom: 20px;" alt="help" height = '40%' width='auto'/>
+		
+		<img class="center fit" id="id_vert_bar_3" src="img/vert_bar_img.png" style="position: absolute; top: 5px; right: 490px; bottom: 5px;" alt="bar" height = '60%' width='auto'/>
+
+	</div>
+	
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script type="text/javascript" language="JavaScript">
+		
+			//MODIFICA LA DIMENSIONE DEGLI ELEMENTI DELLA BARRA SUPERIORE IN BASE ALAL DIMENSIONE DELLA FINESTRA
+			function set_body_width() { 
+			var wh = $(window).width();
+			var bg_img = document.getElementById('id_bg_img');
+			var logo_img = document.getElementById('id_logo_img');
+			
+			//icone e dimensione
+			var vert_bar_0 = document.getElementById('id_vert_bar_0');
+			var vert_bar_width = vert_bar_0.clientWidth;
+			var help_icon = document.getElementById('id_help_icon');
+			var help_icon_width = help_icon.clientWidth;
+			var save_icon = document.getElementById('id_save_icon');
+			var save_icon_width = save_icon.clientWidth;
+			var load_icon = document.getElementById('id_load_icon');
+			var load_icon_width = load_icon.clientWidth;
+			
+			var vert_bar_1 = document.getElementById('id_vert_bar_1');
+			
+			var redo_icon = document.getElementById('id_redo_icon');
+			var redo_icon_width = redo_icon.clientWidth;
+
+			var undo_icon = document.getElementById('id_undo_icon');
+			var undo_icon_width = undo_icon.clientWidth;
+			
+			var vert_bar_3 = document.getElementById('id_vert_bar_3');
+			
+			var header = document.getElementById('header');
+			
+            var header_height = 130 - (1/wh-10);
+			header.setAttribute("style","display:block;height:"+header_height);
+			header.style.height= header_height;
+
+			//$('body').width(wh);
+						
+			
+			bg_img.width = wh;
+						
+			//posizionamento icone e vertical bar dinamico
+			vert_bar_0.style.right = vert_bar_width * 4;
+			vert_bar_0.style.opacity = 0.0;
+			
+			help_icon.style.right = (wh - ( $('#id_vert_bar_0').offset().left + vert_bar_width) + help_icon_width / 3);
+			save_icon.style.right = (wh - ( $('#id_help_icon').offset().left + help_icon_width) + save_icon_width + (save_icon_width / 3)) + 20;
+			load_icon.style.right = (wh - ( $('#id_save_icon').offset().left + save_icon_width) + load_icon_width + (load_icon_width / 3)) + 45;
+			
+			vert_bar_1.style.right = (wh - ( $('#id_load_icon').offset().left) + vert_bar_width * 4) + 80;
+			vert_bar_1.style.opacity = 0.0;
+			
+			redo_icon.style.right = (wh - ( $('#id_vert_bar_1').offset().left + vert_bar_width) + redo_icon_width / 3);
+			
+			undo_icon.style.right = (wh - ( $('#id_redo_icon').offset().left + redo_icon_width) + undo_icon_width + (undo_icon_width / 3)) + 40;
+			
+			vert_bar_3.style.right = (wh - ( $('#id_undo_icon').offset().left) + vert_bar_width * 4);
+			vert_bar_3.style.opacity = 0.0;
+			
+			logo_img.style.height = 'auto';
+			logo_img.style.width = wh * 0.2;
+			
+			}
+			
+
+			
+			$(document).ready(function() {
+			set_body_width();
+			
+			$(window).bind('resize', function() { set_body_width(); });
+			});
+		</script>
+		
+	</body>
+	
+	
+
+    
+</html>

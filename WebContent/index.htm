@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//IT" "http://www.w3.org/TR/html4/frameset.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it-IT" > 
+   <head> 
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <title>FACE mashup</title>
+	  
+	  	<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script type="text/javascript" language="JavaScript">
+		
+			//MODIFICA LA DIMENSIONE DEGLI ELEMENTI DELLA BARRA SUPERIORE IN BASE ALLA DIMENSIONE DELLA FINESTRA
+			function set_frame_height() { 
+			
+			var wh = $(window).width();
+				
+				document.getElementById('id_upper_bar_frame').setAttribute("rows", (wh * 0.05)+',*');
+			
+			}
+			
+			$(document).ready(function() {
+			set_frame_height();
+			
+			$(window).bind('resize', function() { set_frame_height(); });
+			});
+		</script>
+	  
+	  
+    </head>
+	
+	
+	<frameset id="id_upper_bar_frame" rows="20%,*" bgcolor="#E9EAED" border="0">
+       <frame src="face mashup/html/upper_bar.htm" noresize="noresize" frameborder="0" name="upper_bar_frame">
+	   <frame src="face mashup/html/work_area.jsp" noresize="noresize" frameborder="0" name="work_area_frame">
+
+
+    </frameset>
+	
+
+
+    
+</html>

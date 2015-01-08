@@ -1,0 +1,125 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it-IT">
+   <head> 
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <title>generic widget body</title>
+	  
+	  <script src="generic_widget_body.widget.js"></script>
+	  
+    </head>
+	
+	<style type="text/css">
+	
+	@font-face {
+	    font-family: 'sans';
+		src: url('font/sans.eot');
+        src: local('sans'), url('font/sans.ttf') format('truetype');
+	}
+	
+	
+       html, body {
+			margin: 0;
+			padding: 0;
+       }
+	   
+	   .div_widget_bg {
+			background-image: url(img/widget_body/widget_bg.png);
+			background-size:cover;
+			background-repeat: no-repeat;
+			width: 500px;
+			height: 450px;
+	   }
+	   
+	   .div-widget-inner{
+			overflow:auto;
+			height: 400px;
+			margin:0px 30px 30px;
+		  }
+	   
+	   	.div_prebody_bg {
+			background-image: url(img/widget_body/circle.png);
+			background-repeat: repeat;
+			height:85px;
+	   }
+	   
+	   	.div_widget_body_bg {
+			background-image: url(img/widget_body/widget_inner_bg.png);
+			background-repeat: no-repeat;
+			margin:15px 4px 0px;
+			height:300px;
+	   }
+	   
+	    div.custom_form {
+           background-image: url(img/widget_body/input_text_bg.png); 
+		   background-repeat: no-repeat;
+        }
+        
+		div.custom_form input {
+           background-color: #e6e6e6;
+           border:none;
+           font-size:19px;
+		   margin:0px 10px 0px;
+		   
+        }
+	   
+	   
+    </style>
+	
+	<body>
+	
+	<div id="widget_body" class="div_widget_bg">
+	
+		<div style="position:relative" id="header" draggable="false" onmousedown="javascript:dragWidget(this)"> 
+			<img src="img/widget_body/header_shadow.png"/>
+			
+			<img src="img/widget_body/widget_close.png" style="position: absolute; top: 5px; left: 470px; bottom: 5px;"/>
+			<img src="img/widget_body/widget_help.png" style="position: absolute; top: 4px; left: 440px; bottom: 6px;"/>
+
+		</div>
+		
+		<div id="inner" class="div-widget-inner">
+		
+		    <div style="position:relative; text-align:center" class="div_prebody_bg" id="prebody"> 
+				
+				<img src="img/widget_body/shadow_upper_bar.png"/>
+				
+				
+				<div id="form_text_field" style="position: absolute; top: 20px; left: 10px; bottom: 5px; text-align:left">
+				
+					<div class="custom_form">
+						<input type="text" id="widget_name" placeholder="Nome del widget" size='22' class="custom_form"><br>
+					</div>
+					<img src="img/widget_body/plus_button.png" style="position: absolute; top: 30px; left: 0px; bottom: 5px"/>
+
+				</div>
+				
+				<img src="img/widget_body/shadow_bottom_bar.png" style="position: absolute; top: 55px; left: 0px; bottom: 5px"/>
+			
+		    </div>
+			
+			<div id="widget_body" class="div_widget_body_bg">
+				
+				<b style="position: absolute; top: 150px; left: 60px; font-size:20px; font-family: sans ">Login</b>
+				<img src="img/widget_body/body_hor_rect.png" style="position: absolute; top: 175px; left: 50px"/>
+				
+				<img src="img/widget_body/user_picture.png" style="position: absolute; top: 188px; left: 80px"/>
+				
+				<p style="position: absolute; top: 200px; left: 260px; font-size:18px; font-family: sans ">nome: <b>Nome Utente</b></p>
+				
+				<img src="img/widget_body/body_hor_rect.png" style="position: absolute; top: 370px; left: 50px"/>
+							
+			
+			</div>
+
+		</div>
+		
+		<img src="img/widget_body/footer_shadow_bar.png" style="position: absolute; top: 420px; left: 0px"/>
+
+	</div>
+	
+
+	</body>
+	
+	
+
+    
+</html>
